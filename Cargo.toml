@@ -1,0 +1,16 @@
+[package]
+name = "sorted-array"
+version = "0.1.0"
+edition = "2018"
+description = "A wrapper around sorted arrays for compile-time checking and efficiency"
+authors = ["Fredrik Østrem <frx.apps@gmail.com>"]
+repository = "https://github.com/frxstrem/sorted-array"
+license = "MIT"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = []
+
+[dependencies]
