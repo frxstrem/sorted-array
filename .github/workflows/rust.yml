@@ -29,3 +29,11 @@ jobs:
       run: cargo fmt -- --check
     - name: Generate documentation
       run: cargo +nightly doc
+    - name: Deploy documentation
+      if: github.ref == 'refs/heads/master'
+      uses: peaceiris/actions-gh-pages@1828d864aeb7ba79a37f40035aa6d0b7ff66254f # v3.5.7
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_branch: gh-pages
+        publish_dir: ./target/doc
+        force_orphan: true
