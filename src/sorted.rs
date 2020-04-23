@@ -4,6 +4,7 @@ use std::fmt::{self, Debug};
 use std::iter::FromIterator;
 use std::marker::PhantomData;
 use std::ops::Deref;
+use std::sync::Arc;
 
 /// A wrapper around an array-like type that is guaranteed to always be sorted.
 #[repr(transparent)]
@@ -206,5 +207,41 @@ impl<A: BorrowMut<[T]> + FromIterator<T>, T: Ord> FromIterator<T> for Sorted<A, 
     {
         let array = A::from_iter(iter);
         Sorted::new(array)
+    }
+}
+
+impl<T: Ord> From<Sorted<Vec<T>, T>> for Sorted<Arc<[T]>, T> {
+    fn from(array: Sorted<Vec<T>, T>) -> Sorted<Arc<[T]>, T> {
+        Sorted {
+            array: array.array.into(),
+            _phantom: PhantomData,
+        }
+    }
+}
+
+impl<T: Ord> From<Sorted<Box<[T]>, T>> for Sorted<Arc<[T]>, T> {
+    fn from(array: Sorted<Box<[T]>, T>) -> Sorted<Arc<[T]>, T> {
+        Sorted {
+            array: array.array.into(),
+            _phantom: PhantomData,
+        }
+    }
+}
+
+impl<T: Ord> From<Sorted<Vec<T>, T>> for Sorted<Box<[T]>, T> {
+    fn from(array: Sorted<Vec<T>, T>) -> Sorted<Box<[T]>, T> {
+        Sorted {
+            array: array.array.into(),
+            _phantom: PhantomData,
+        }
+    }
+}
+
+impl<T: Ord> From<Sorted<Box<[T]>, T>> for Sorted<Vec<T>, T> {
+    fn from(array: Sorted<Box<[T]>, T>) -> Sorted<Vec<T>, T> {
+        Sorted {
+            array: array.array.into(),
+            _phantom: PhantomData,
+        }
     }
 }
