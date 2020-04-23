@@ -210,6 +210,12 @@ impl<A: BorrowMut<[T]> + FromIterator<T>, T: Ord> FromIterator<T> for Sorted<A, 
     }
 }
 
+impl<A: BorrowMut<[T]> + Default, T: Ord> Default for Sorted<A, T> {
+    fn default() -> Self {
+        Sorted::new(A::default())
+    }
+}
+
 impl<T: Ord> From<Sorted<Vec<T>, T>> for Sorted<Arc<[T]>, T> {
     fn from(array: Sorted<Vec<T>, T>) -> Sorted<Arc<[T]>, T> {
         Sorted {

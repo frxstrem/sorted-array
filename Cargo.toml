@@ -1,6 +1,6 @@
 [package]
 name = "sorted-array"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2018"
 description = "A wrapper around sorted arrays for compile-time checking and efficiency"
 authors = ["Fredrik Østrem <frx.apps@gmail.com>"]
