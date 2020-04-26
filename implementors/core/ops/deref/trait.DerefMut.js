@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["sorted_array"] = [{"text":"impl&lt;T, C:&nbsp;<a class=\"trait\" href=\"sorted_array/trait.Comparator.html\" title=\"trait sorted_array::Comparator\">Comparator</a>&lt;T&gt;&gt; <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/ops/deref/trait.DerefMut.html\" title=\"trait core::ops::deref::DerefMut\">DerefMut</a> for <a class=\"struct\" href=\"sorted_array/struct.SortedVec.html\" title=\"struct sorted_array::SortedVec\">SortedVec</a>&lt;T, C&gt;","synthetic":false,"types":["sorted_array::sorted_vec::SortedVec"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

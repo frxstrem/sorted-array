@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["sort_boxed_slice",""],["sort_mut_slice",""],["sort_mut_slice_unstable",""],["sort_vec",""]],"mod":[["prelude",""]],"struct":[["OrdComparator",""],["SortedSlice",""],["SortedVec",""]],"trait":[["Comparator",""],["WeakBorrow",""]]});
