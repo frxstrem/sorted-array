@@ -21,6 +21,7 @@ pub use crate::sorted_vec::*;
 pub use crate::weak_borrow::*;
 
 pub mod prelude {
+    pub use crate::sorted_array::SortedArray;
     pub use crate::sorted_slice::SortedSlice;
     #[cfg(feature = "alloc")]
     pub use crate::sorted_vec::SortedVec;
