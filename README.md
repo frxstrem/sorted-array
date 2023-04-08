@@ -1,4 +1,4 @@
-This crate provides [`SortedSlice`] and [`SortedVec`], which are sorted variants of `[T]` and `Vec<T>`.
+This crate provides [`SortedSlice`], [`SortedArray`] and [`SortedVec`], which are sorted variants of `[T]`, `[T; N]` and `Vec<T>`.
 
 These types have a restricted set of operations to guarantee that they are always sorted. For instance,
 it is not possible to get mutable references to the underlying slices or items within, as that could

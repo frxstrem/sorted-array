@@ -105,6 +105,27 @@ impl<T, C: Comparator<T>> SortedSlice<T, C> {
     {
         self.find_mut_range_by(|it| C::compare(&f(it), key))
     }
+
+    pub fn replace(&mut self, index: usize, value: T) -> T {
+        if index >= self.len() {
+            let len = self.len();
+            panic!("index out of bounds: the len is {len} but the index is {index}");
+        }
+
+        let new_index = self
+            .binary_search_by(|it| C::compare(it, &value))
+            .unwrap_or_else(|index| index);
+
+        let old_value = core::mem::replace(&mut self.slice[index], value);
+
+        match index.cmp(&new_index) {
+            Ordering::Less => self.slice[index..new_index].rotate_left(1),
+            Ordering::Greater => self.slice[new_index..=index].rotate_right(1),
+            Ordering::Equal => {}
+        }
+
+        old_value
+    }
 }
 
 #[cfg(feature = "alloc")]
